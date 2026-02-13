@@ -13,12 +13,12 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (token) {
-      // Fake user for demo
-      setUser({ name: 'User', email: 'user@example.com' });
+      setUser({ name: 'User', email: 'user@example.com' }); // fake user
     }
+
     const savedMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(savedMode);
-    if (savedMode) document.documentElement.classList.add('dark');
+    document.documentElement.classList.toggle('dark', savedMode);
   }, []);
 
   const login = (data) => {
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = (data) => {
-    login(data); // Fake register as login
+    login(data); // fake register
   };
 
   const logout = () => {

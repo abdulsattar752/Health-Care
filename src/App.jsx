@@ -8,14 +8,18 @@ import Dashboard from './pages/Dashboard';
 import SymptomChecker from './pages/SymptomChecker';
 import ChatDoctor from './pages/ChatDoctor';
 import DietPlanner from './pages/DietPlanner';
-import Profile from './pages/Profile'; // Added for advanced features
+import Profile from './pages/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
+    // ──────────────────────────────────────────────
+    // IMPORTANT: Router must wrap AuthProvider
+    // so that useNavigate() inside AuthProvider works
+    // ──────────────────────────────────────────────
+    <Router>
+      <AuthProvider>
         <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
           <Navbar />
           <Routes>
@@ -29,8 +33,8 @@ function App() {
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           </Routes>
         </div>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 
