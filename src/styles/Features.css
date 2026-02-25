@@ -507,6 +507,111 @@ body.dark .meal-header h4 {
   font-size: 0.9rem;
 }
 
+/* Meals Table */
+.meals-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+body.dark .meals-table-wrapper {
+  border-color: var(--border-dark);
+}
+
+.meals-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  font-size: 0.95rem;
+}
+
+body.dark .meals-table {
+  background-color: var(--bg-dark-secondary);
+}
+
+.meals-table thead {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+}
+
+.meals-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary);
+}
+
+.meals-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-dark);
+}
+
+body.dark .meals-table td {
+  border-bottom-color: var(--border-dark);
+  color: var(--text-dark-light);
+}
+
+.meals-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.meals-table tbody tr:hover {
+  background-color: #f0f4ff;
+}
+
+body.dark .meals-table tbody tr:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.meals-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.meal-time-cell {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.meal-type-cell {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+body.dark .meal-type-cell {
+  color: var(--text-dark-light);
+}
+
+.meal-items-cell {
+  font-size: 0.9rem;
+  max-width: 300px;
+  word-break: break-word;
+}
+
+.meal-cal-cell {
+  font-weight: 600;
+  background: rgba(0, 102, 255, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .meals-table {
+    font-size: 0.85rem;
+  }
+
+  .meals-table th,
+  .meals-table td {
+    padding: 0.75rem;
+  }
+
+  .meal-items-cell {
+    max-width: 200px;
+  }
+}
+
 /* Nutrition Overview */
 .nutrition-overview {
   display: grid;

@@ -12,9 +12,50 @@ const DietPlanner = () => {
 
   const onSubmit = (data) => {
     setLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      setPlan({
+    // Generate diet plan based on selection
+    const mealPlans = {
+      'pakistani': {
+        calories: 2200,
+        meals: [
+          {
+            name: 'Breakfast',
+            items: ['Aloo Paratha with yogurt', 'Chai (Tea)', 'Fried egg'],
+            calories: 400,
+            time: '7:00 AM',
+          },
+          {
+            name: 'Mid-Morning Snack',
+            items: ['Samosa', 'Fruit juice'],
+            calories: 200,
+            time: '10:00 AM',
+          },
+          {
+            name: 'Lunch',
+            items: ['Biryani or Pulao', 'Raita (yogurt)', 'Salad'],
+            calories: 700,
+            time: '1:00 PM',
+          },
+          {
+            name: 'Afternoon Snack',
+            items: ['Pakora or Chikhalwali', 'Chai (Tea)'],
+            calories: 250,
+            time: '4:00 PM',
+          },
+          {
+            name: 'Dinner',
+            items: ['Karahi or Curry', 'Naan or Roti', 'Dal'],
+            calories: 650,
+            time: '8:00 PM',
+          },
+        ],
+        nutrition: {
+          protein: '135g',
+          carbs: '260g',
+          fats: '70g',
+          fiber: '32g',
+        },
+      },
+      'general': {
         calories: 2000,
         meals: [
           {
@@ -24,14 +65,20 @@ const DietPlanner = () => {
             time: '7:00 AM',
           },
           {
+            name: 'Mid-Morning Snack',
+            items: ['Apple', 'Almonds'],
+            calories: 150,
+            time: '10:00 AM',
+          },
+          {
             name: 'Lunch',
             items: ['Grilled chicken', 'Brown rice', 'Green salad'],
             calories: 600,
             time: '12:30 PM',
           },
           {
-            name: 'Snack',
-            items: ['Apple', 'Almonds'],
+            name: 'Afternoon Snack',
+            items: ['Banana', 'Peanut butter'],
             calories: 200,
             time: '3:00 PM',
           },
@@ -41,12 +88,6 @@ const DietPlanner = () => {
             calories: 650,
             time: '7:00 PM',
           },
-          {
-            name: 'Evening',
-            items: ['Yogurt', 'Honey'],
-            calories: 200,
-            time: '9:00 PM',
-          },
         ],
         nutrition: {
           protein: '125g',
@@ -54,8 +95,19 @@ const DietPlanner = () => {
           fats: '65g',
           fiber: '35g',
         },
+      },
+    };
+
+    // Simulate API call
+    setTimeout(() => {
+      const cuisine = data.cuisine || 'general';
+      const selectedPlan = mealPlans[cuisine] || mealPlans.general;
+      
+      setPlan({
+        ...selectedPlan,
         water: '8-10 glasses',
         exercise: '30 minutes moderate activity',
+        cuisine: cuisine,
       });
       setLoading(false);
     }, 1500);
@@ -106,13 +158,10 @@ const DietPlanner = () => {
                     {errors.goal && <p className="error-message">{errors.goal.message}</p>}
                   </div>
                   <div className="input-group">
-                    <label htmlFor="dietary">Dietary Preference</label>
-                    <select {...register('dietary')} id="dietary">
-                      <option value="">Select preference</option>
-                      <option value="omnivore">Omnivore</option>
-                      <option value="vegetarian">Vegetarian</option>
-                      <option value="vegan">Vegan</option>
-                      <option value="keto">Keto</option>
+                    <label htmlFor="cuisine">Cuisine Type</label>
+                    <select {...register('cuisine')} id="cuisine">
+                      <option value="general">International</option>
+                      <option value="pakistani">Pakistani 🇵🇰</option>
                     </select>
                   </div>
                 </div>
@@ -177,20 +226,32 @@ const DietPlanner = () => {
                 {/* Daily Meals */}
                 <div className="meals-section">
                   <h3>Daily Meal Schedule</h3>
-                  {plan.meals.map((meal, index) => (
-                    <div key={index} className="meal-card">
-                      <div className="meal-header">
-                        <h4>{meal.name}</h4>
-                        <span className="meal-time">{meal.time}</span>
-                        <span className="meal-cal">{meal.calories} cal</span>
-                      </div>
-                      <ul className="meal-items">
-                        {meal.items.map((item, idx) => (
-                          <li key={idx}>✓ {item}</li>
+                  <div className="meals-table-wrapper">
+                    <table className="meals-table">
+                      <thead>
+                        <tr>
+                          <th>Time</th>
+                          <th>Meal Type</th>
+                          <th>Items</th>
+                          <th>Calories</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {plan.meals.map((meal, index) => (
+                          <tr key={index}>
+                            <td className="meal-time-cell">{meal.time}</td>
+                            <td className="meal-type-cell">
+                              <strong>{meal.name}</strong>
+                            </td>
+                            <td className="meal-items-cell">
+                              {meal.items.join(', ')}
+                            </td>
+                            <td className="meal-cal-cell">{meal.calories} cal</td>
+                          </tr>
                         ))}
-                      </ul>
-                    </div>
-                  ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 {/* Recommendations */}
