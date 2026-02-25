@@ -18,7 +18,11 @@ export const AuthProvider = ({ children }) => {
 
     const savedMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(savedMode);
-    document.documentElement.classList.toggle('dark', savedMode);
+    if (savedMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
   }, []);
 
   const login = (data) => {
@@ -42,8 +46,12 @@ export const AuthProvider = ({ children }) => {
   const toggleDarkMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
-    localStorage.setItem('darkMode', newMode);
-    document.documentElement.classList.toggle('dark', newMode);
+    localStorage.setItem('darkMode', String(newMode));
+    if (newMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
   };
 
   return (

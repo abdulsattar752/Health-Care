@@ -15,15 +15,15 @@ html {
 
 body {
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8fafc;
-  color: #1f2937;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
   line-height: 1.6;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark {
-  background-color: #0f172a;
-  color: #e2e8f0;
+  background-color: var(--bg-dark);
+  color: var(--text-dark-light);
 }
 
 /* ============================================
@@ -46,14 +46,14 @@ body.dark {
   --info: #3b82f6;
   --danger: #ef4444;
   
-  /* Neutral Colors */
+  /* Neutral Colors - Light Mode */
   --bg-light: #f8fafc;
   --bg-primary: #ffffff;
   --text-dark: #1f2937;
   --text-light: #6b7280;
   --border-light: #e5e7eb;
   
-  /* Dark Mode */
+  /* Dark Mode Colors */
   --bg-dark: #0f172a;
   --bg-dark-secondary: #1e293b;
   --text-dark-light: #e2e8f0;
@@ -81,6 +81,15 @@ body.dark {
   --transition-fast: 150ms ease;
   --transition-base: 300ms ease;
   --transition-slow: 500ms ease;
+}
+
+/* Dark mode overrides */
+body.dark {
+  --bg-light: #0f172a;
+  --bg-primary: #1e293b;
+  --text-dark: #e2e8f0;
+  --text-light: #cbd5e1;
+  --border-light: #334155;
 }
 
 /* ============================================
