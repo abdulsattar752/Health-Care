@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../components/Sidebar';
+import { generateDietPlanPDF } from '../services/pdfUtils';
 import '../styles/Features.css';
 
 const DietPlanner = () => {
@@ -58,6 +59,21 @@ const DietPlanner = () => {
       });
       setLoading(false);
     }, 1500);
+  };
+
+  const handleDownloadPDF = () => {
+    if (!plan) return;
+    
+    const dietData = {
+      meals: plan.meals.map(meal => ({
+        type: meal.name,
+        items: meal.items,
+      })),
+      nutrition: plan.nutrition,
+      calories: plan.calories,
+    };
+    
+    generateDietPlanPDF(dietData, 'my-diet-plan');
   };
 
   return (
@@ -190,7 +206,11 @@ const DietPlanner = () => {
                   </div>
                 </div>
 
-                <button className="btn btn--secondary btn--block">
+                <button 
+                  className="btn btn--secondary btn--block"
+                  onClick={handleDownloadPDF}
+                  title="Download your diet plan as PDF"
+                >
                   📥 Download PDF Plan
                 </button>
               </section>

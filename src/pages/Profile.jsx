@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../context/AuthContext';
 import Sidebar from '../components/Sidebar';
+import { generateHealthReportPDF } from '../services/pdfUtils';
 import '../styles/Features.css';
 
 const Profile = () => {
@@ -23,6 +24,27 @@ const Profile = () => {
       setEditMode(false);
       setTimeout(() => setSaved(false), 3000);
     }, 500);
+  };
+
+  const handleDownloadProfilePDF = () => {
+    const profileData = {
+      patient: {
+        'Name': user?.name || 'Not set',
+        'Email': user?.email || 'Not set',
+        'Age': '28 years',
+        'Gender': 'Male',
+        'Blood Type': 'O+',
+        'Height': '5\'10"',
+        'Weight': '70 kg',
+      },
+      metrics: [
+        { label: 'BMI', value: '23.5', unit: 'kg/m²', status: 'healthy' },
+      ],
+      riskLevel: 'Low',
+      recommendations: 'Regular health check-ups recommended annually. Continue healthy lifestyle. Maintain balanced diet and regular exercise.',
+    };
+    
+    generateHealthReportPDF(profileData, 'my-profile-data');
   };
 
   return (
@@ -199,7 +221,11 @@ const Profile = () => {
                 <button className="btn btn--secondary btn--block">
                   🔐 Change Password
                 </button>
-                <button className="btn btn--secondary btn--block">
+                <button 
+                  className="btn btn--secondary btn--block"
+                  onClick={handleDownloadProfilePDF}
+                  title="Download your profile and health data as PDF"
+                >
                   📥 Download My Data
                 </button>
                 <button className="btn btn--danger btn--block">

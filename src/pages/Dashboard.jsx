@@ -2,6 +2,7 @@
 import Sidebar from '../components/Sidebar';
 import HealthCard from '../components/HealthCard';
 import RiskBadge from '../components/RiskBadge';
+import { generateHealthReportPDF } from '../services/pdfUtils';
 import '../styles/Dashboard.css';
 
 const Dashboard = () => {
@@ -14,10 +15,31 @@ const Dashboard = () => {
   ];
 
   const recentReports = [
-    { date: 'Jan 15, 2026', type: 'Health Check', status: 'Completed' },
-    { date: 'Jan 10, 2026', type: 'Symptom Analysis', status: 'Completed' },
-    { date: 'Jan 5, 2026', type: 'Diet Assessment', status: 'Completed' },
+    { date: 'Jan 15, 2026', type: 'Health Check', status: 'Completed', id: 'report-1' },
+    { date: 'Jan 10, 2026', type: 'Symptom Analysis', status: 'Completed', id: 'report-2' },
+    { date: 'Jan 5, 2026', type: 'Diet Assessment', status: 'Completed', id: 'report-3' },
   ];
+
+  // Generate sample report data based on type
+  const generateReportData = (reportType) => {
+    return {
+      patient: {
+        'Name': 'John Doe',
+        'Age': '32',
+        'Blood Type': 'O+',
+      },
+      metrics: healthMetrics,
+      riskLevel: 'Low',
+      recommendations: 'Continue current exercise routine. Maintain balanced diet. Schedule follow-up in 3 months.',
+    };
+  };
+
+  // Handle PDF download
+  const handleDownloadPDF = (report) => {
+    const reportData = generateReportData(report.type);
+    const fileName = `${report.type.toLowerCase().replace(/\s+/g, '-')}-${report.date.replace(/\s+/g, '-')}`;
+    generateHealthReportPDF(reportData, fileName);
+  };
 
   return (
     <div className="dashboard-layout">
@@ -91,7 +113,18 @@ const Dashboard = () => {
                       <td>{report.date}</td>
                       <td>{report.type}</td>
                       <td><span className="badge badge--success">{report.status}</span></td>
-                      <td><button className="btn btn--primary btn--sm">View</button></td>
+                      <td>
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                          <button className="btn btn--primary btn--sm">View</button>
+                          <button 
+                            className="btn btn--secondary btn--sm"
+                            onClick={() => handleDownloadPDF(report)}
+                            title="Download as PDF"
+                          >
+                            📥 PDF
+                          </button>
+                        </div>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

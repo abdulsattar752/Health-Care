@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Sidebar from '../components/Sidebar';
 import RiskBadge from '../components/RiskBadge';
+import { generateHealthReportPDF } from '../services/pdfUtils';
 import '../styles/Features.css';
 
 const SymptomChecker = () => {
@@ -30,6 +31,26 @@ const SymptomChecker = () => {
       });
       setLoading(false);
     }, 1500);
+  };
+
+  const handleDownloadAnalysis = () => {
+    if (!result) return;
+    
+    const analysisData = {
+      patient: {
+        'Symptoms': result.symptoms,
+        'Risk Level': result.riskLevel,
+      },
+      metrics: result.diagnostics.map(d => ({
+        label: d.name,
+        value: d.probability,
+        unit: '%',
+      })),
+      riskLevel: result.riskLevel,
+      recommendations: result.recommendations.join('\n• '),
+    };
+    
+    generateHealthReportPDF(analysisData, 'symptom-analysis');
   };
 
   return (
@@ -139,6 +160,15 @@ const SymptomChecker = () => {
                   ⚠️ This AI analysis is not a substitute for professional medical advice. 
                   Always consult with a healthcare provider for proper diagnosis and treatment.
                 </p>
+
+                <button 
+                  className="btn btn--secondary btn--block"
+                  onClick={handleDownloadAnalysis}
+                  style={{ marginTop: '20px' }}
+                  title="Download your symptom analysis as PDF"
+                >
+                  📥 Download Analysis PDF
+                </button>
               </section>
             )}
           </div>
