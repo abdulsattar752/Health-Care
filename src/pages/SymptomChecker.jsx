@@ -149,13 +149,3 @@ const SymptomChecker = () => {
 };
 
 export default SymptomChecker;
-    <div className="flex">
-      <Sidebar />                     // ← now this will work
-      <div className="flex-1 p-4">
-        {/* rest of your form and result display */}
-      </div>
-    </div>
-  );
-};
-
-export default SymptomChecker;
