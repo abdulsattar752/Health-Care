@@ -778,6 +778,148 @@ body.dark .medical-item {
   border-left-color: var(--secondary);
 }
 
+/* Pakistani Diet Section */
+.pakistan-diet-section {
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(0, 212, 255, 0.05) 100%);
+  border-top: 3px solid var(--primary);
+}
+
+body.dark .pakistan-diet-section {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+}
+
+.section-subtitle {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+body.dark .section-subtitle {
+  color: var(--text-light);
+}
+
+.pakistan-diet-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+body.dark .pakistan-diet-table-wrapper {
+  border-color: var(--border-dark);
+}
+
+.pakistan-diet-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  font-size: 0.9rem;
+}
+
+body.dark .pakistan-diet-table {
+  background-color: var(--bg-dark-secondary);
+}
+
+.pakistan-diet-table thead {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.pakistan-diet-table th {
+  padding: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 2px solid #059669;
+  font-size: 1rem;
+}
+
+.pakistan-diet-table td {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+body.dark .pakistan-diet-table td {
+  border-bottom-color: var(--border-dark);
+  color: var(--text-dark-light);
+}
+
+.pakistan-diet-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.pakistan-diet-table tbody tr:hover {
+  background-color: #f0fdf4;
+}
+
+body.dark .pakistan-diet-table tbody tr:hover {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.pakistan-diet-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pakistan-diet-table td strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--primary);
+}
+
+body.dark .pakistan-diet-table td strong {
+  color: var(--secondary);
+}
+
+.pakistan-diet-table td {
+  line-height: 1.6;
+  font-size: 0.85rem;
+}
+
+.cal-badge {
+  display: inline-block;
+  background-color: var(--success);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .pakistan-diet-table th,
+  .pakistan-diet-table td {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .pakistan-diet-table td strong {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pakistan-diet-table {
+    font-size: 0.75rem;
+  }
+
+  .pakistan-diet-table th,
+  .pakistan-diet-table td {
+    padding: 0.75rem;
+  }
+
+  .pakistan-diet-table th {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .pakistan-diet-table td strong {
+    font-size: 0.8rem;
+  }
+}
+
 .medical-item h4 {
   margin: 0 0 0.5rem 0;
   color: var(--text-dark);

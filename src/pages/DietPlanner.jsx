@@ -140,6 +140,92 @@ const DietPlanner = () => {
             <p>Get a personalized nutrition plan tailored to your health goals</p>
           </div>
 
+          {/* Pakistani Diet Options Overview */}
+          <section className="feature-card-section pakistan-diet-section">
+            <h2>🇵🇰 Popular Pakistani Diet Plans</h2>
+            <p className="section-subtitle">Discover traditional Pakistani meals for balanced nutrition</p>
+            <div className="pakistan-diet-table-wrapper">
+              <table className="pakistan-diet-table">
+                <thead>
+                  <tr>
+                    <th>Breakfast 🌅</th>
+                    <th>Lunch 🍽️</th>
+                    <th>Dinner 🌙</th>
+                    <th>Snacks 🥤</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Aloo Paratha</strong><br/>
+                      Potatoes & spices in dough<br/>
+                      <span className="cal-badge">~400 cal</span>
+                    </td>
+                    <td>
+                      <strong>Chicken Biryani</strong><br/>
+                      Rice, chicken & spices<br/>
+                      <span className="cal-badge">~700 cal</span>
+                    </td>
+                    <td>
+                      <strong>Karahi</strong><br/>
+                      Meat in tomato & spices<br/>
+                      <span className="cal-badge">~650 cal</span>
+                    </td>
+                    <td>
+                      <strong>Samosa</strong><br/>
+                      Fried pastry with filling<br/>
+                      <span className="cal-badge">~200 cal</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Puri Chana</strong><br/>
+                      Fried bread & chickpeas<br/>
+                      <span className="cal-badge">~380 cal</span>
+                    </td>
+                    <td>
+                      <strong>Haleem</strong><br/>
+                      Meat & lentils slow-cooked<br/>
+                      <span className="cal-badge">~680 cal</span>
+                    </td>
+                    <td>
+                      <strong>Nihari</strong><br/>
+                      Stew with meat & spices<br/>
+                      <span className="cal-badge">~620 cal</span>
+                    </td>
+                    <td>
+                      <strong>Pakora</strong><br/>
+                      Spiced vegetable fritters<br/>
+                      <span className="cal-badge">~180 cal</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Naan & Eggs</strong><br/>
+                      Flatbread with fried eggs<br/>
+                      <span className="cal-badge">~420 cal</span>
+                    </td>
+                    <td>
+                      <strong>Pulao</strong><br/>
+                      Fragrant rice with meat<br/>
+                      <span className="cal-badge">~650 cal</span>
+                    </td>
+                    <td>
+                      <strong>Tandoori Chicken</strong><br/>
+                      Spiced marinated chicken<br/>
+                      <span className="cal-badge">~550 cal</span>
+                    </td>
+                    <td>
+                      <strong>Chai & Biscuits</strong><br/>
+                      Tea with cookies<br/>
+                      <span className="cal-badge">~220 cal</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
           <div className="feature-grid">
             {/* Form Section */}
             <section className="feature-card-section">
