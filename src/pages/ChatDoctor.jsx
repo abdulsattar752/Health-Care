@@ -93,6 +93,13 @@ const ChatDoctor = () => {
 
   const handleQuickQuestion = (question) => {
     setInput(question);
+    // Auto-focus the input
+    setTimeout(() => {
+      const textarea = document.querySelector('.chat-input');
+      if (textarea) {
+        textarea.focus();
+      }
+    }, 100);
   };
 
   return (
