@@ -5,18 +5,21 @@ A modern, responsive web application for health management with AI-powered featu
 ## 🎨 Design & UI/UX Features
 
 ### Modern Color Scheme
+
 - **Primary Color**: #0066ff (Modern Blue)
 - **Secondary Color**: #00d4ff (Cyan)
 - **Accent Colors**: Red (#ff6b6b), Green (#10b981), Orange (#f59e0b)
 - **Professional gradients** throughout the interface
 
 ### Responsive Design
+
 - ✅ **Mobile-First Approach**: Optimized for all screen sizes
 - ✅ **Desktop**: Full-featured layout with sidebar navigation
 - ✅ **Tablet**: Optimized grid layouts
 - ✅ **Mobile**: Touch-friendly components with collapsible menus
 
 ### UI Components
+
 - Beautiful gradient navigation bar with mobile menu toggle
 - Responsive sidebar with collapsible navigation
 - Card-based layout system with hover effects
@@ -29,6 +32,7 @@ A modern, responsive web application for health management with AI-powered featu
 ## 🚀 Features
 
 ### Core Features
+
 1. **AI Symptom Checker** 🔍
    - Describe symptoms and get AI analysis
    - Probability-based diagnostic suggestions
@@ -102,6 +106,7 @@ src/
 ## 🎯 Color Palette
 
 ### Light Theme
+
 - Background: #f8fafc
 - Card Background: #ffffff
 - Text Primary: #1f2937
@@ -109,6 +114,7 @@ src/
 - Borders: #e5e7eb
 
 ### Dark Theme
+
 - Background: #0f172a
 - Card Background: #1e293b
 - Text Primary: #e2e8f0
@@ -124,6 +130,7 @@ src/
 ## ✨ CSS Features
 
 ### Global Utilities
+
 - Consistent spacing system
 - Responsive grid and flex layouts
 - Shadow utilities for depth
@@ -132,6 +139,7 @@ src/
 - Dark mode media queries
 
 ### Component Styles
+
 - Buttons: Primary, Secondary, Danger variants with hover states
 - Forms: Validated inputs with error states
 - Cards: Elevated cards with animation
@@ -142,21 +150,25 @@ src/
 ## 🚀 Getting Started
 
 ### Installation
+
 ```bash
 npm install
 ```
 
 ### Development
+
 ```bash
 npm run dev
 ```
 
 ### Build
+
 ```bash
 npm run build
 ```
 
 ### Preview
+
 ```bash
 npm run preview
 ```
