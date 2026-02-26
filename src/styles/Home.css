@@ -252,3 +252,50 @@ body.dark .stat-card {
     min-width: 140px;
   }
 }
+
+/* Doctors/Profile Utilities */
+.doctors-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .doctors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.doctor-profile {
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+body.dark .doctor-profile {
+  background-color: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+}
+
+.doctor-avatar {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.doctor-profile h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+body.dark .doctor-profile h3 {
+  color: var(--text-dark-light);
+}
+
+.specialty {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}

@@ -8,8 +8,8 @@ A professional color palette has been implemented throughout the entire applicat
 
 #### Primary Colors
 
-- **Primary Blue**: `#0066ff` - Main brand color for CTAs and highlights
-- **Secondary Cyan**: `#00d4ff` - Accent color for visual interest
+- **Primary Blue**: `#0A84FF` - Main brand color for CTAs and highlights
+- **Secondary Teal**: `#1ABC9C` - Accent color for visual interest
 - **Gradient**: Linear blend (135deg) from primary to secondary
 
 #### Status Colors
@@ -297,7 +297,7 @@ A professional color palette has been implemented throughout the entire applicat
 ```css
 /* Colors */
 --primary:
-  #0066ff --secondary: #00d4ff --success: #10b981 --warning: #f59e0b
+  #0A84FF --secondary: #1ABC9C --success: #10b981 --warning: #f59e0b
     --danger: #ef4444 /* Spacing */ Consistent 1rem (16px) base unit 0.5rem,
   1rem, 1.5rem, 2rem, 3rem,
   4rem /* Border Radius */ --radius-sm: 6px --radius-md: 12px --radius-lg: 16px

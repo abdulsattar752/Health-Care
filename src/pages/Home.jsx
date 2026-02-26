@@ -14,7 +14,7 @@ const Home = () => {
               Get instant health insights, personalized diet plans, and 24/7 AI-powered medical guidance
             </p>
             <div className="hero-buttons">
-              <Link to="/login" className="btn btn--primary btn--lg">
+              <Link to="/login" className="btn btn--cta btn--lg">
                 Get Started Now
               </Link>
               <a href="#features" className="btn btn--secondary btn--lg">
@@ -175,13 +175,40 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Doctors Section */}
+      <section className="section section--light">
+        <div className="container">
+          <div className="section-header">
+            <h2>Meet Our Specialists</h2>
+            <p>Licensed medical professionals ready to assist you</p>
+          </div>
+          <div className="doctors-grid">
+            <div className="doctor-profile">
+              <div className="doctor-avatar">👩‍⚕️</div>
+              <h3>Dr. Jane Smith</h3>
+              <p className="specialty">Cardiologist</p>
+            </div>
+            <div className="doctor-profile">
+              <div className="doctor-avatar">👨‍⚕️</div>
+              <h3>Dr. John Doe</h3>
+              <p className="specialty">Nutritionist</p>
+            </div>
+            <div className="doctor-profile">
+              <div className="doctor-avatar">👩‍⚕️</div>
+              <h3>Dr. Emily Chen</h3>
+              <p className="specialty">General Practitioner</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section section--hero">
         <div className="container">
           <div className="cta-content">
             <h2>Ready to Transform Your Health?</h2>
             <p>Join thousands of users taking control of their wellness today</p>
-            <Link to="/register" className="btn btn--secondary btn--lg">
+            <Link to="/register" className="btn btn--cta btn--lg">
               Get Started Free Today
             </Link>
           </div>
