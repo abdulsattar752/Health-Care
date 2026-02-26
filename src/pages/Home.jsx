@@ -2,7 +2,21 @@
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 
+import { useState } from 'react';
+
 const Home = () => {
+  const [faqOpen, setFaqOpen] = useState(null);
+
+  const toggleFaq = (index) => {
+    setFaqOpen(faqOpen === index ? null : index);
+  };
+
+  const faqItems = [
+    { question: 'How accurate is the AI symptom checker?', answer: 'Our AI model is trained on medical data and regularly updated by professionals. It provides suggestions but is not a substitute for a licensed doctor.' },
+    { question: 'Can I share my data with my physician?', answer: 'Yes, you can export your reports and share them with your healthcare provider at any time.' },
+    { question: 'Is my personal information secure?', answer: 'We follow industry-standard encryption and privacy policies to protect your data. Review our Privacy Policy for more details.' },
+  ];
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -25,6 +39,33 @@ const Home = () => {
           <div className="hero-illustration">
             <div className="illustration-placeholder">
               <span>🏥💊</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="section section--light">
+        <div className="container">
+          <div className="section-header">
+            <h2>Our Services</h2>
+            <p>Comprehensive offerings designed around your health</p>
+          </div>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="feature-card-icon">🩺</div>
+              <h3>Virtual Consultations</h3>
+              <p>Connect with licensed professionals from the comfort of your home.</p>
+            </div>
+            <div className="service-card">
+              <div className="feature-card-icon">📊</div>
+              <h3>Health Analytics</h3>
+              <p>Track your metrics and view easy-to-understand trends over time.</p>
+            </div>
+            <div className="service-card">
+              <div className="feature-card-icon">📝</div>
+              <h3>Customized Plans</h3>
+              <p>Receive personalized diet and fitness plans based on your unique profile.</p>
             </div>
           </div>
         </div>
@@ -171,6 +212,31 @@ const Home = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section section--light">
+        <div className="container">
+          <div className="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Answers to common user queries</p>
+          </div>
+          <div className="faq">
+            {faqItems.map((item, idx) => (
+              <div
+                key={idx}
+                className={`faq-item ${faqOpen === idx ? 'expanded' : ''}`}
+                onClick={() => toggleFaq(idx)}
+              >
+                <div className="faq-question">
+                  {item.question}
+                  <span>{faqOpen === idx ? '−' : '+'}</span>
+                </div>
+                <div className="faq-answer">{item.answer}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

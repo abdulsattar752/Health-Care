@@ -193,6 +193,19 @@ body.dark .stat-card {
   font-weight: 500;
 }
 
+/* Services Grid */
+.services-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* CTA Content */
 .cta-content {
   text-align: center;
@@ -251,6 +264,42 @@ body.dark .stat-card {
     flex: 1;
     min-width: 140px;
   }
+}
+
+/* FAQ Section */
+.faq {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem 0;
+}
+
+body.dark .faq-item {
+  border-color: var(--border-dark);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+.faq-item.expanded .faq-answer {
+  max-height: 200px;
 }
 
 /* Doctors/Profile Utilities */
