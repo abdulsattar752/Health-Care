@@ -184,17 +184,29 @@ const Home = () => {
           </div>
           <div className="doctors-grid">
             <div className="doctor-profile">
-              <div className="doctor-avatar">👩‍⚕️</div>
+              <img
+                src="https://via.placeholder.com/120?text=Dr+JS"
+                alt="Dr. Jane Smith"
+                className="doctor-avatar"
+              />
               <h3>Dr. Jane Smith</h3>
               <p className="specialty">Cardiologist</p>
             </div>
             <div className="doctor-profile">
-              <div className="doctor-avatar">👨‍⚕️</div>
+              <img
+                src="https://via.placeholder.com/120?text=Dr+JD"
+                alt="Dr. John Doe"
+                className="doctor-avatar"
+              />
               <h3>Dr. John Doe</h3>
               <p className="specialty">Nutritionist</p>
             </div>
             <div className="doctor-profile">
-              <div className="doctor-avatar">👩‍⚕️</div>
+              <img
+                src="https://via.placeholder.com/120?text=Dr+EC"
+                alt="Dr. Emily Chen"
+                className="doctor-avatar"
+              />
               <h3>Dr. Emily Chen</h3>
               <p className="specialty">General Practitioner</p>
             </div>

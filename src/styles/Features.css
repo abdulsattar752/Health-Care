@@ -348,7 +348,7 @@ body.dark .chat-messages {
 }
 
 .chat-message.chat-bot .chat-bubble {
-  background-color: #f0f4ff;
+  background-color: var(--bg-light);
   color: var(--text-dark);
   border-radius: 4px var(--radius-lg) var(--radius-lg) var(--radius-lg);
   border-left: 3px solid var(--primary);
