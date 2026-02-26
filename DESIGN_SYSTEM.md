@@ -297,7 +297,7 @@ A professional color palette has been implemented throughout the entire applicat
 ```css
 /* Colors */
 --primary:
-  #0A84FF --secondary: #1ABC9C --success: #10b981 --warning: #f59e0b
+  #0a84ff --secondary: #1abc9c --success: #10b981 --warning: #f59e0b
     --danger: #ef4444 /* Spacing */ Consistent 1rem (16px) base unit 0.5rem,
   1rem, 1.5rem, 2rem, 3rem,
   4rem /* Border Radius */ --radius-sm: 6px --radius-md: 12px --radius-lg: 16px
