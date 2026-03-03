@@ -10,7 +10,7 @@ const Dashboard = () => {
   const healthMetrics = [
     { label: 'Heart Rate', value: '72', unit: 'bpm', icon: '❤️', status: 'normal' },
     { label: 'Blood Pressure', value: '120/80', unit: 'mmHg', icon: '💉', status: 'normal' },
-    { label: 'Temperature', value: '98.6', unit: '°F', icon: '🌡️', status: 'normal' },
+    { label: 'Temperature', value: '90.6', unit: '°F', icon: '🌡️', status: 'normal' },
     { label: 'BMI', value: '23.5', unit: 'kg/m²', icon: '⚖️', status: 'healthy' },
   ];
 
@@ -24,7 +24,7 @@ const Dashboard = () => {
   const generateReportData = (reportType) => {
     return {
       patient: {
-        'Name': 'John Doe',
+        'Name': 'Abdul Sattar',
         'Age': '32',
         'Blood Type': 'O+',
       },
