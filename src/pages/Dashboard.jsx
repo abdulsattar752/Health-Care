@@ -26,7 +26,7 @@ const Dashboard = () => {
       patient: {
         'Name': 'Abdul Sattar',
         'Age': '32',
-        'Blood Type': 'O+',
+        'Blood Type': 'B+',
       },
       metrics: healthMetrics,
       riskLevel: 'Low',
@@ -49,7 +49,7 @@ const Dashboard = () => {
         <div className="dashboard-container">
           {/* Welcome Header */}
           <div className="dashboard-header">
-            <h1>Welcome Back! 👋</h1>
+            <h1>Welcome Back Abdul Sattar 👋</h1>
             <p>Here's your health overview for today</p>
           </div>
 
