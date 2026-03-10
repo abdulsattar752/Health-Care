@@ -1,16 +1,16 @@
-// src/App.jsx
+// src/app/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import SymptomChecker from './pages/SymptomChecker';
-import ChatDoctor from './pages/ChatDoctor';
-import DietPlanner from './pages/DietPlanner';
-import Profile from './pages/Profile';
-import ProtectedRoute from './components/ProtectedRoute';
-import Navbar from './components/Navbar';
+import { AuthProvider } from '../context/AuthContext';
+import Navbar from '../components/layout/Navbar';
+import ProtectedRoute from '../components/layout/ProtectedRoute';
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import Dashboard from '../pages/Dashboard';
+import SymptomChecker from '../pages/SymptomChecker';
+import ChatDoctor from '../pages/ChatDoctor';
+import DietPlanner from '../pages/DietPlanner';
+import Profile from '../pages/Profile';
 import './App.css';
 
 function App() {

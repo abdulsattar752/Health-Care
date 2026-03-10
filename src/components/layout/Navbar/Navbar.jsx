@@ -1,12 +1,23 @@
-// src/components/Navbar.jsx
-import { useContext, useState } from 'react';
+// src/components/layout/Navbar/Navbar.jsx
+import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
-import '../styles/Navbar.css';
+import { AuthContext } from '../../../context/AuthContext';
+import './Navbar.css';
 
 const Navbar = () => {
   const { user, logout, darkMode, toggleDarkMode } = useContext(AuthContext);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -17,26 +28,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" role="navigation" aria-label="Main">
+      <div className="navbar-backdrop" aria-hidden="true" onClick={closeMobileMenu} data-open={mobileMenuOpen} />
       <div className="navbar-container">
-        {/* Logo */}
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          <span className="logo-icon">🏥</span>
+          <span className="logo-icon" aria-hidden="true">🏥</span>
           Health Care
         </Link>
 
-        {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className={`mobile-menu-toggle ${mobileMenuOpen ? 'active' : ''}`}
           onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
+          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileMenuOpen}
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        {/* Navigation Menu */}
         <div className={`navbar-menu ${mobileMenuOpen ? 'active' : ''}`}>
           <div className="navbar-links">
             {user ? (
@@ -69,9 +79,8 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Right Actions */}
           <div className="navbar-actions">
-            <button 
+            <button
               className="btn-theme"
               onClick={toggleDarkMode}
               title={darkMode ? 'Light Mode' : 'Dark Mode'}
@@ -82,7 +91,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <span className="user-name">Welcome, {user.name}</span>
-                <button 
+                <button
                   onClick={() => {
                     logout();
                     closeMobileMenu();

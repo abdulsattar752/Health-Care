@@ -1,8 +1,8 @@
-// src/components/Sidebar.jsx
+// src/components/layout/Sidebar/Sidebar.jsx
 import { Link, useLocation } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import '../styles/Sidebar.css';
+import { AuthContext } from '../../../context/AuthContext';
+import './Sidebar.css';
 
 const Sidebar = () => {
   const { logout } = useContext(AuthContext);
@@ -21,11 +21,10 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Desktop Sidebar */}
-      <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+      <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`} aria-label="Dashboard navigation">
         <div className="sidebar-header">
           <h2 className={collapsed ? 'hidden' : ''}>Health Care</h2>
-          <button 
+          <button
             className="collapse-btn"
             onClick={() => setCollapsed(!collapsed)}
             title={collapsed ? 'Expand' : 'Collapse'}
@@ -64,8 +63,16 @@ const Sidebar = () => {
         </div>
       </aside>
 
-      {/* Mobile Sidebar Toggle */}
-      <button 
+      <div
+        className="sidebar-overlay"
+        onClick={() => setCollapsed(false)}
+        onKeyDown={(e) => e.key === 'Escape' && setCollapsed(false)}
+        role="button"
+        tabIndex={-1}
+        aria-label="Close menu"
+      />
+
+      <button
         className="sidebar-mobile-toggle"
         onClick={() => setCollapsed(!collapsed)}
         title="Toggle Menu"

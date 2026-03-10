@@ -1,12 +1,12 @@
-// src/pages/Dashboard.jsx
-import Sidebar from '../components/Sidebar';
-import HealthCard from '../components/HealthCard';
-import RiskBadge from '../components/RiskBadge';
-import { generateHealthReportPDF } from '../services/pdfUtils';
-import '../styles/Dashboard.css';
+// src/pages/Dashboard/index.jsx
+import { Link } from 'react-router-dom';
+import Sidebar from '../../components/layout/Sidebar';
+import HealthCard from '../../components/ui/HealthCard';
+import RiskBadge from '../../components/ui/RiskBadge';
+import { generateHealthReportPDF } from '../../services/utils/pdfUtils';
+import '../../styles/Dashboard.css';
 
 const Dashboard = () => {
-  // Sample health data
   const healthMetrics = [
     { label: 'Heart Rate', value: '72', unit: 'bpm', icon: '❤️', status: 'normal' },
     { label: 'Blood Pressure', value: '120/80', unit: 'mmHg', icon: '💉', status: 'normal' },
@@ -20,21 +20,13 @@ const Dashboard = () => {
     { date: 'Jan 5, 2026', type: 'Diet Assessment', status: 'Completed', id: 'report-3' },
   ];
 
-  // Generate sample report data based on type
-  const generateReportData = (reportType) => {
-    return {
-      patient: {
-        'Name': 'Abdul Sattar',
-        'Age': '32',
-        'Blood Type': 'B+',
-      },
-      metrics: healthMetrics,
-      riskLevel: 'Low',
-      recommendations: 'Continue current exercise routine. Maintain balanced diet. Schedule follow-up in 3 months.',
-    };
-  };
+  const generateReportData = (reportType) => ({
+    patient: { 'Name': 'Abdul Sattar', 'Age': '32', 'Blood Type': 'B+' },
+    metrics: healthMetrics,
+    riskLevel: 'Low',
+    recommendations: 'Continue current exercise routine. Maintain balanced diet. Schedule follow-up in 3 months.',
+  });
 
-  // Handle PDF download
   const handleDownloadPDF = (report) => {
     const reportData = generateReportData(report.type);
     const fileName = `${report.type.toLowerCase().replace(/\s+/g, '-')}-${report.date.replace(/\s+/g, '-')}`;
@@ -44,16 +36,13 @@ const Dashboard = () => {
   return (
     <div className="dashboard-layout">
       <Sidebar />
-      
       <main className="dashboard-main">
         <div className="dashboard-container">
-          {/* Welcome Header */}
           <div className="dashboard-header">
             <h1>Welcome Back Abdul Sattar 👋</h1>
             <p>Here's your health overview for today</p>
           </div>
 
-          {/* Health Metrics Grid */}
           <section className="dashboard-section">
             <h2 className="section-title">Your Health Metrics</h2>
             <div className="metrics-grid">
@@ -75,7 +64,6 @@ const Dashboard = () => {
             </div>
           </section>
 
-          {/* Risk Assessment */}
           <section className="dashboard-section">
             <h2 className="section-title">Health Risk Assessment</h2>
             <div className="risk-assessment-grid">
@@ -85,13 +73,11 @@ const Dashboard = () => {
             </div>
           </section>
 
-          {/* Health Card Component */}
           <section className="dashboard-section">
             <h2 className="section-title">Overall Health</h2>
             <HealthCard />
           </section>
 
-          {/* Recent Reports */}
           <section className="dashboard-section">
             <div className="section-header-flex">
               <h2 className="section-title">Recent Reports</h2>
@@ -116,11 +102,7 @@ const Dashboard = () => {
                       <td>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <button className="btn btn--primary btn--sm">View</button>
-                          <button 
-                            className="btn btn--secondary btn--sm"
-                            onClick={() => handleDownloadPDF(report)}
-                            title="Download as PDF"
-                          >
+                          <button className="btn btn--secondary btn--sm" onClick={() => handleDownloadPDF(report)} title="Download as PDF">
                             📥 PDF
                           </button>
                         </div>
@@ -132,26 +114,25 @@ const Dashboard = () => {
             </div>
           </section>
 
-          {/* Quick Actions */}
           <section className="dashboard-section">
             <h2 className="section-title">Quick Actions</h2>
             <div className="quick-actions-grid">
-              <a href="/symptom-checker" className="quick-action-card">
+              <Link to="/symptom-checker" className="quick-action-card">
                 <div className="quick-action-icon">🔍</div>
                 <div className="quick-action-label">Check Symptoms</div>
-              </a>
-              <a href="/chat-doctor" className="quick-action-card">
+              </Link>
+              <Link to="/chat-doctor" className="quick-action-card">
                 <div className="quick-action-icon">💬</div>
                 <div className="quick-action-label">Chat with AI Doctor</div>
-              </a>
-              <a href="/diet-planner" className="quick-action-card">
+              </Link>
+              <Link to="/diet-planner" className="quick-action-card">
                 <div className="quick-action-icon">🍎</div>
                 <div className="quick-action-label">Diet Plan</div>
-              </a>
-              <a href="/profile" className="quick-action-card">
+              </Link>
+              <Link to="/profile" className="quick-action-card">
                 <div className="quick-action-icon">👤</div>
                 <div className="quick-action-label">My Profile</div>
-              </a>
+              </Link>
             </div>
           </section>
         </div>

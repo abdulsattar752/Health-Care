@@ -14,11 +14,12 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-light);
   color: var(--text-dark);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body.dark {
@@ -101,7 +102,7 @@ body.dark {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 max(1rem, env(safe-area-inset-left)) 0 max(1rem, env(safe-area-inset-right));
 }
 
 @media (min-width: 768px) {
@@ -160,6 +161,8 @@ body.dark .card {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
+  min-height: 44px;
+  min-width: 44px;
   border: none;
   border-radius: var(--radius-md);
   font-weight: 600;
@@ -169,6 +172,7 @@ body.dark .card {
   text-decoration: none;
   white-space: nowrap;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Primary Button */
@@ -355,10 +359,10 @@ body.dark h6 {
   color: var(--text-dark-light);
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
+h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+h4 { font-size: clamp(1.125rem, 2.5vw, 1.25rem); }
 h5 { font-size: 1.125rem; }
 h6 { font-size: 1rem; }
 
@@ -544,18 +548,39 @@ body.dark ::-webkit-scrollbar-thumb {
 }
 
 /* ============================================
+   FOCUS & ACCESSIBILITY
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
    RESPONSIVE MEDIA QUERIES
    ============================================ */
 
 /* Tablets */
 @media (min-width: 768px) {
-  h1 { font-size: 3rem; }
-  h2 { font-size: 2.5rem; }
-  h3 { font-size: 2rem; }
+  h1 { font-size: clamp(2.25rem, 4vw, 3rem); }
+  h2 { font-size: clamp(2rem, 3.5vw, 2.5rem); }
+  h3 { font-size: clamp(1.5rem, 2.5vw, 2rem); }
 }
 
 /* Desktops */
 @media (min-width: 1024px) {
-  h1 { font-size: 3.5rem; }
-  h2 { font-size: 3rem; }
+  h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); }
+  h2 { font-size: clamp(2.25rem, 3vw, 3rem); }
 }

@@ -1,8 +1,7 @@
-// src/pages/Home.jsx
-import { Link } from 'react-router-dom';
-import '../styles/Home.css';
-
+// src/pages/Home/index.jsx
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../../styles/Home.css';
 
 const Home = () => {
   const [faqOpen, setFaqOpen] = useState(null);
@@ -19,50 +18,46 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* Hero Section */}
-      <section className="section section--hero">
-        <div className="container">
+      <section className="section section--hero" aria-label="Hero">
+        <div className="container hero-container">
           <div className="hero-content">
-            <h1 className="hero-title">Your AI-Powered Health Assistant</h1>
+            <p className="hero-badge">AI-Powered • Trusted by 50K+ Users</p>
+            <h1 className="hero-title">Your Health, Smarter.</h1>
             <p className="hero-subtitle">
-              Get instant health insights, personalized diet plans, and 24/7 AI-powered medical guidance
+              Get instant health insights, personalized diet plans, and 24/7 AI-powered medical guidance—all in one place.
             </p>
             <div className="hero-buttons">
-              <Link to="/login" className="btn btn--cta btn--lg">
-                Get Started Now
-              </Link>
-              <a href="#features" className="btn btn--secondary btn--lg">
-                Learn More
-              </a>
+              <Link to="/login" className="btn btn--cta btn--lg">Get Started Free</Link>
+              <a href="#features" className="btn btn--hero-outline btn--lg">Explore Features</a>
             </div>
           </div>
           <div className="hero-illustration">
-            <div className="illustration-placeholder">
-              <span>🏥💊</span>
+            <div className="illustration-placeholder" aria-hidden="true">
+              <span className="hero-emoji">🏥</span>
+              <span className="hero-emoji hero-emoji--2">💊</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="section section--light">
+      <section className="section section--light" aria-labelledby="services-heading">
         <div className="container">
           <div className="section-header">
-            <h2>Our Services</h2>
+            <h2 id="services-heading">Our Services</h2>
             <p>Comprehensive offerings designed around your health</p>
           </div>
           <div className="services-grid">
-            <div className="service-card">
+            <div className="service-card feature-card">
               <div className="feature-card-icon">🩺</div>
               <h3>Virtual Consultations</h3>
               <p>Connect with licensed professionals from the comfort of your home.</p>
             </div>
-            <div className="service-card">
+            <div className="service-card feature-card">
               <div className="feature-card-icon">📊</div>
               <h3>Health Analytics</h3>
               <p>Track your metrics and view easy-to-understand trends over time.</p>
             </div>
-            <div className="service-card">
+            <div className="service-card feature-card">
               <div className="feature-card-icon">📝</div>
               <h3>Customized Plans</h3>
               <p>Receive personalized diet and fitness plans based on your unique profile.</p>
@@ -71,37 +66,28 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section id="features" className="section section--light">
         <div className="container">
           <div className="section-header">
             <h2>Why Choose Our Platform?</h2>
             <p>Experience the future of healthcare with advanced AI technology</p>
           </div>
-
           <div className="features-grid">
-            {/* Feature 1 */}
             <div className="feature-card">
               <div className="feature-card-icon">🔍</div>
               <h3>AI Symptom Checker</h3>
               <p>Analyze your symptoms with advanced AI technology and get potential diagnoses instantly</p>
             </div>
-
-            {/* Feature 2 */}
             <div className="feature-card">
               <div className="feature-card-icon">🍎</div>
               <h3>Personalized Diet Plans</h3>
               <p>Get customized nutrition recommendations based on your health profile and preferences</p>
             </div>
-
-            {/* Feature 3 */}
             <div className="feature-card">
               <div className="feature-card-icon">⚡</div>
               <h3>Risk Assessment</h3>
               <p>Understand your health risk factors with detailed analysis and prevention strategies</p>
             </div>
-
-            {/* Feature 4 */}
             <div className="feature-card">
               <div className="feature-card-icon">💬</div>
               <h3>24/7 AI Chat Doctor</h3>
@@ -111,25 +97,21 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section className="section section--alt">
         <div className="container">
           <div className="section-header">
             <h2>How It Works</h2>
             <p>Three simple steps to better health</p>
           </div>
-
           <div className="steps-container">
             <div className="step-card">
               <h4>Sign Up</h4>
               <p>Create your account and provide your basic health information to get started</p>
             </div>
-
             <div className="step-card">
               <h4>Get Analysis</h4>
               <p>Use our AI tools to analyze symptoms, check risk factors, and get instant insights</p>
             </div>
-
             <div className="step-card">
               <h4>Take Action</h4>
               <p>Follow personalized recommendations and track your health improvements</p>
@@ -138,102 +120,70 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Statistics Section */}
       <section className="section section--light">
         <div className="container">
           <div className="stats-grid">
-            <div className="stat-card">
-              <div className="stat-number">50K+</div>
-              <div className="stat-label">Active Users</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">95%</div>
-              <div className="stat-label">Satisfaction Rate</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">24/7</div>
-              <div className="stat-label">Support Available</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">10K+</div>
-              <div className="stat-label">Diagnoses Assessed</div>
-            </div>
+            <div className="stat-card"><div className="stat-number">50K+</div><div className="stat-label">Active Users</div></div>
+            <div className="stat-card"><div className="stat-number">95%</div><div className="stat-label">Satisfaction Rate</div></div>
+            <div className="stat-card"><div className="stat-number">24/7</div><div className="stat-label">Support Available</div></div>
+            <div className="stat-card"><div className="stat-number">10K+</div><div className="stat-label">Diagnoses Assessed</div></div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section className="section section--alt">
         <div className="container">
           <div className="section-header">
             <h2>What Our Users Say</h2>
             <p>Join thousands of satisfied users improving their health daily</p>
           </div>
-
           <div className="testimonials-grid">
             <div className="testimonial-card">
               <div className="stars">⭐⭐⭐⭐⭐</div>
-              <p>
-                "This app completely changed how I manage my health. The AI symptom checker is incredibly accurate and the personalized diet plans are exactly what I needed!"
-              </p>
+              <p>"This app completely changed how I manage my health. The AI symptom checker is incredibly accurate and the personalized diet plans are exactly what I needed!"</p>
               <div className="testimonial-author">
                 <div className="testimonial-avatar">JD</div>
-                <div>
-                  <div className="testimonial-name">John Doe</div>
-                  <div className="testimonial-role">Health Enthusiast</div>
-                </div>
+                <div><div className="testimonial-name">John Doe</div><div className="testimonial-role">Health Enthusiast</div></div>
               </div>
             </div>
-
             <div className="testimonial-card">
               <div className="stars">⭐⭐⭐⭐⭐</div>
-              <p>
-                "Having 24/7 access to an AI doctor is revolutionary. I've never felt more confident about my health decisions. Highly recommend!"
-              </p>
+              <p>"Having 24/7 access to an AI doctor is revolutionary. I've never felt more confident about my health decisions. Highly recommend!"</p>
               <div className="testimonial-author">
                 <div className="testimonial-avatar">SJ</div>
-                <div>
-                  <div className="testimonial-name">Sarah Johnson</div>
-                  <div className="testimonial-role">Fitness Coach</div>
-                </div>
+                <div><div className="testimonial-name">Sarah Johnson</div><div className="testimonial-role">Fitness Coach</div></div>
               </div>
             </div>
-
             <div className="testimonial-card">
               <div className="stars">⭐⭐⭐⭐⭐</div>
-              <p>
-                "The comprehensive health analysis gave me insights I never had before. The app is user-friendly and genuinely helpful for tracking my wellness journey."
-              </p>
+              <p>"The comprehensive health analysis gave me insights I never had before. The app is user-friendly and genuinely helpful for tracking my wellness journey."</p>
               <div className="testimonial-author">
                 <div className="testimonial-avatar">MR</div>
-                <div>
-                  <div className="testimonial-name">Mike Ross</div>
-                  <div className="testimonial-role">Business Professional</div>
-                </div>
+                <div><div className="testimonial-name">Mike Ross</div><div className="testimonial-role">Business Professional</div></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section className="section section--light">
         <div className="container">
           <div className="section-header">
             <h2>Frequently Asked Questions</h2>
             <p>Answers to common user queries</p>
           </div>
-          <div className="faq">
+          <div className="faq" role="list">
             {faqItems.map((item, idx) => (
               <div
                 key={idx}
                 className={`faq-item ${faqOpen === idx ? 'expanded' : ''}`}
                 onClick={() => toggleFaq(idx)}
+                onKeyDown={(e) => e.key === 'Enter' && toggleFaq(idx)}
+                role="button"
+                tabIndex={0}
+                aria-expanded={faqOpen === idx}
               >
-                <div className="faq-question">
-                  {item.question}
-                  <span>{faqOpen === idx ? '−' : '+'}</span>
-                </div>
+                <div className="faq-question">{item.question}<span className="faq-icon" aria-hidden="true">{faqOpen === idx ? '−' : '+'}</span></div>
                 <div className="faq-answer">{item.answer}</div>
               </div>
             ))}
@@ -241,7 +191,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Doctors Section */}
       <section className="section section--light">
         <div className="container">
           <div className="section-header">
@@ -250,29 +199,23 @@ const Home = () => {
           </div>
           <div className="doctors-grid">
             <div className="doctor-profile">
-              <img
-                src="https://via.placeholder.com/120?text=Dr+JS"
-                alt="Dr. Jane Smith"
-                className="doctor-avatar"
-              />
+              <div className="doctor-avatar-wrap">
+                <span className="doctor-avatar doctor-avatar--initials" aria-hidden="true">JS</span>
+              </div>
               <h3>Dr. Jane Smith</h3>
               <p className="specialty">Cardiologist</p>
             </div>
             <div className="doctor-profile">
-              <img
-                src="https://via.placeholder.com/120?text=Dr+JD"
-                alt="Dr. John Doe"
-                className="doctor-avatar"
-              />
+              <div className="doctor-avatar-wrap">
+                <span className="doctor-avatar doctor-avatar--initials" aria-hidden="true">JD</span>
+              </div>
               <h3>Dr. John Doe</h3>
               <p className="specialty">Nutritionist</p>
             </div>
             <div className="doctor-profile">
-              <img
-                src="https://via.placeholder.com/120?text=Dr+EC"
-                alt="Dr. Emily Chen"
-                className="doctor-avatar"
-              />
+              <div className="doctor-avatar-wrap">
+                <span className="doctor-avatar doctor-avatar--initials" aria-hidden="true">EC</span>
+              </div>
               <h3>Dr. Emily Chen</h3>
               <p className="specialty">General Practitioner</p>
             </div>
@@ -280,20 +223,16 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section section--hero">
+      <section className="section section--hero section--cta" aria-label="Call to action">
         <div className="container">
           <div className="cta-content">
             <h2>Ready to Transform Your Health?</h2>
-            <p>Join thousands of users taking control of their wellness today</p>
-            <Link to="/register" className="btn btn--cta btn--lg">
-              Get Started Free Today
-            </Link>
+            <p>Join thousands of users taking control of their wellness today.</p>
+            <Link to="/register" className="btn btn--cta btn--lg">Get Started Free Today</Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <footer>
         <div className="footer-content">
           <div className="footer-links">

@@ -1,8 +1,7 @@
-// src/components/RiskBadge.jsx
-import '../styles/Components.css';
+// src/components/ui/RiskBadge/RiskBadge.jsx
+import '../../../styles/Components.css';
 
 const RiskBadge = ({ level = 'Medium', color }) => {
-  // Map level to color if not provided
   const getColor = () => {
     if (color) return color;
     if (level === 'Low') return 'success';

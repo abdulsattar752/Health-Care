@@ -1,19 +1,16 @@
-// src/pages/Register.jsx
+// src/pages/Register/index.jsx
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
-import '../styles/AuthPages.css';
+import { AuthContext } from '../../context/AuthContext';
+import '../../styles/AuthPages.css';
 
 const Register = () => {
   const [step, setStep] = useState(1);
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const { register: authRegister } = useContext(AuthContext);
 
-  const onSubmit = data => {
-    authRegister(data);
-  };
-
+  const onSubmit = data => authRegister(data);
   const password = watch('password');
 
   return (
@@ -26,14 +23,12 @@ const Register = () => {
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
-            {/* Step Indicator */}
             <div className="steps-indicator">
               <div className={`step ${step >= 1 ? 'active' : ''}`}>1</div>
               <div className={`step-line ${step >= 2 ? 'active' : ''}`}></div>
               <div className={`step ${step >= 2 ? 'active' : ''}`}>2</div>
             </div>
 
-            {/* Step 1: Basic Info */}
             {step === 1 && (
               <>
                 <div className="input-group">
@@ -44,10 +39,7 @@ const Register = () => {
                     placeholder="John Doe"
                     {...register('name', {
                       required: 'Full name is required',
-                      minLength: {
-                        value: 2,
-                        message: 'Name must be at least 2 characters',
-                      },
+                      minLength: { value: 2, message: 'Name must be at least 2 characters' },
                     })}
                   />
                   {errors.name && <p className="error-message">{errors.name.message}</p>}
@@ -78,10 +70,7 @@ const Register = () => {
                     placeholder="••••••••"
                     {...register('password', {
                       required: 'Password is required',
-                      minLength: {
-                        value: 8,
-                        message: 'Password must be at least 8 characters',
-                      },
+                      minLength: { value: 8, message: 'Password must be at least 8 characters' },
                     })}
                   />
                   {errors.password && <p className="error-message">{errors.password.message}</p>}
@@ -95,24 +84,18 @@ const Register = () => {
                     placeholder="••••••••"
                     {...register('confirmPassword', {
                       required: 'Please confirm your password',
-                      validate: value =>
-                        value === password || 'Passwords do not match',
+                      validate: value => value === password || 'Passwords do not match',
                     })}
                   />
                   {errors.confirmPassword && <p className="error-message">{errors.confirmPassword.message}</p>}
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => setStep(2)}
-                  className="btn btn--primary btn--block btn--lg"
-                >
+                <button type="button" onClick={() => setStep(2)} className="btn btn--primary btn--block btn--lg">
                   Next: Health Info
                 </button>
               </>
             )}
 
-            {/* Step 2: Health Info */}
             {step === 2 && (
               <>
                 <div className="input-group">
@@ -133,10 +116,7 @@ const Register = () => {
 
                 <div className="input-group">
                   <label htmlFor="gender">Gender</label>
-                  <select
-                    id="gender"
-                    {...register('gender', { required: 'Please select a gender' })}
-                  >
+                  <select id="gender" {...register('gender', { required: 'Please select a gender' })}>
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -169,25 +149,15 @@ const Register = () => {
                       })}
                     />
                     <span>
-                      I agree to the{' '}
-                      <Link to="#" className="auth-link">
-                        Terms of Service
-                      </Link>{' '}
-                      and{' '}
-                      <Link to="#" className="auth-link">
-                        Privacy Policy
-                      </Link>
+                      I agree to the <Link to="#" className="auth-link">Terms of Service</Link> and{' '}
+                      <Link to="#" className="auth-link">Privacy Policy</Link>
                     </span>
                   </label>
                   {errors.terms && <p className="error-message">{errors.terms.message}</p>}
                 </div>
 
                 <div className="auth-buttons">
-                  <button
-                    type="button"
-                    onClick={() => setStep(1)}
-                    className="btn btn--secondary btn--block btn--lg"
-                  >
+                  <button type="button" onClick={() => setStep(1)} className="btn btn--secondary btn--block btn--lg">
                     Back
                   </button>
                   <button type="submit" className="btn btn--primary btn--block btn--lg">
@@ -198,18 +168,13 @@ const Register = () => {
             )}
           </form>
 
-          {/* Sign In Link */}
           <div className="auth-footer">
             <p>
-              Already have an account?{' '}
-              <Link to="/login" className="auth-link">
-                Sign in here
-              </Link>
+              Already have an account? <Link to="/login" className="auth-link">Sign in here</Link>
             </p>
           </div>
         </div>
 
-        {/* Side Graphic (Desktop Only) */}
         <div className="auth-graphic hidden-mobile">
           <div className="graphic-content">
             <div className="graphic-icon">💪</div>

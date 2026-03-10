@@ -31,7 +31,9 @@ body.dark .feature-layout {
 .feature-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
 }
 
 @media (min-width: 768px) {
@@ -317,8 +319,12 @@ body.dark .chat-messages {
 
 @media (max-width: 768px) {
   .chat-message {
-    max-width: 85%;
+    max-width: 90%;
   }
+}
+
+.chat-container {
+  -webkit-overflow-scrolling: touch;
 }
 
 .chat-message.chat-user {

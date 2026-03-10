@@ -1,4 +1,4 @@
-// src/components/ChatBox.jsx
+// src/components/ui/ChatBox/ChatBox.jsx
 import { useState } from 'react';
 
 const ChatBox = () => {
@@ -11,7 +11,6 @@ const ChatBox = () => {
     setMessages([...messages, { text: input, user: true, time: new Date().toLocaleTimeString() }]);
     setInput('');
     setTyping(true);
-    // Fake AI response
     await new Promise(resolve => setTimeout(resolve, 1000));
     setMessages(prev => [...prev, { text: 'This is a fake response.', user: false, time: new Date().toLocaleTimeString() }]);
     setTyping(false);

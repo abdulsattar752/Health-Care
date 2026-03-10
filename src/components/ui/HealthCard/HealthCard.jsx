@@ -1,6 +1,6 @@
-// src/components/HealthCard.jsx
+// src/components/ui/HealthCard/HealthCard.jsx
 import { useState } from 'react';
-import '../styles/Components.css';
+import '../../../styles/Components.css';
 
 const HealthCard = () => {
   const [score] = useState(75);
@@ -20,10 +20,10 @@ const HealthCard = () => {
         <div className="score-max">/100</div>
         <svg className={`score-ring score-${status.color}`} viewBox="0 0 200 200">
           <circle cx="100" cy="100" r="90" className="score-ring-bg" />
-          <circle 
-            cx="100" 
-            cy="100" 
-            r="90" 
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
             className="score-ring-progress"
             style={{
               strokeDasharray: `${(score / 100) * 565.48} 565.48`
